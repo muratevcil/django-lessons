@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+ <navbar>
+    <div class="container-fluid bg-dark" id="homepagenavbar">
+    <div class="row align-items-center justify-content-between" id="homepagenavbarrow">
+        <div class="col-3 homepagenavbarlogo">
+            <a href="/" id="logo-name-a-tag">
+            <h3 id="logo-name">turnuvam.com</h3></a>
+        </div>
+        <div class="col-5 homepagenavbarmenu" style="display: flex">
+            <ul>
+                <li><a href="/" id="homepage-writing">home page</a></li>
+                <li><a href="/tournaments/allTournaments" id="tournaments-writing">tournaments</a> </li>
+                <li><a href="/news" id="news-writing">news</a> </li>
+                <li>
+                {% if user.is_authenticated %}
+                 <span class="navbar-text me-4">
+                 <a href="#"> Welcome, {{user.username}}</a>
+                 </span>
+                 <span class="navbar-text me-4">
+                 <a href="../logout">Log Out</a>
+                 </span>
+                {% else %}
+                 <span class="navbar-text me-4">
+                 <a href="../login">Log In</a>
+                </span>
+                 <span class="navbar-text me-4">
+                 <a href="../register">Register</a>
+                 </span>
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </navbar>
+ <form class="row g-3 pt-4 login-form" method="post" action="{% url 'login' %}" >
+ {% csrf_token %}
+ <div class="row justify-content-center">
+ <div class="col-5">
+ <div class="col-12 pt-2">
+ <label for="username" class="form-label">Kullanıcı Adı</label>
+ <input type="text" class="form-control" id="username"
+name="username">
+ </div>
+ <div class="col-12 pt-2" >
+ <label for="password" class="form-label">Şifre</label>
+ <input type="password" class="form-control" id="password"
+name="password">
+ </div>
+ <div class="col-12 pt-3">
+ <button type="submit" class="btn btn-primary">Giriş</button>
+ </div>
+ {% if login == 'Hata' %}
+ <div class="row pt-3" style="padding-left:10px;padding-rigth:10px">
+ <div class="alert alert-danger d-flex align-items-center"
+role="alert">
+ <img src="{% static 'danger.png' %}" width="24px">
+ <div style="padding-left:5px">
+ Kullanıcı adı veya şifre yanlış!
+ </div>
+ </div>
+ </div>
+ {% endif %}
+ </div>
+ </div>
+ </form>
+</body>
+<style>
+ .login-form{
+  margin-top:200px;
+ }
+</style>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+     <navbar>
+    <div class="container-fluid bg-dark" id="homepagenavbar">
+    <div class="row align-items-center justify-content-between" id="homepagenavbarrow">
+        <div class="col-3 homepagenavbarlogo">
+            <a href="/" id="logo-name-a-tag">
+            <h3 id="logo-name">turnuvam.com</h3></a>
+        </div>
+        <div class="col-5 homepagenavbarmenu" style="display: flex">
+            <ul>
+                <li><a href="/" id="homepage-writing">home page</a></li>
+                <li><a href="/tournaments/allTournaments" id="tournaments-writing">tournaments</a> </li>
+                <li><a href="/news" id="news-writing">news</a> </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </navbar>
+    <form class="row g-3 pt-4 register-form" method="post" action="{% url 'register' %}">
+         {% csrf_token %}
+         <div class="row justify-content-center">
+             <div class="col-5 ">
+                 {{ form.as_p }}
+                 <div class="col-12 pt-3">
+                 <button type="submit" class="btn btn-primary">Register</button>
+                 </div>
+             </div>
+         </div>
+    </form>
+</body>
+<style>
+    .upcoming-games-tag{
+        margin-top:100px;
+        text-align:center;
+    }
+    .gamesbar a{
+        margin-top:20px;
+    }
+    .gamesbar a img{
+        margin-top:5px;
+    }
+    .gamesbar h6{
+        margin-left:10px;
+    }
+    .register-form{
+        margin-top:200px;
+    }
+</style>
+</html>

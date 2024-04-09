@@ -1,0 +1,101 @@
+    .special-navbar-tag{
+        z-index:10;
+    }
+    #homepagenavbar{
+        position: fixed;
+        top:0;
+        left:0;
+        max-height: 76px;
+        z-index: 5;
+    }
+    .homepagenavbarlogo{
+    }
+    .homepagenavbarmenu{
+        font-family: "Arial Hebrew";
+        margin-top:10px;
+    }
+    .homepagenavbarmenu li{
+        display:inline-block;
+        margin-right:15px;
+    }
+    .homepagenavbarmenu li a{
+        text-decoration: none;
+        color:whitesmoke;
+        font-size:20px;
+    }
+    .homepagenavbarmenu li button{
+        background: transparent;
+        border:none;
+        width:50px;
+        height:50px;
+    }
+    #profile-photo{
+        height:50px;
+        width:50px;
+    }
+    #logo-name{
+        color:white;
+    }
+    #logo-name-a-tag{
+        text-decoration: none;
+    }
+    #gamesbar{
+        position:fixed;
+        top:76px;
+        left:0;
+        height:100%;
+        width:250px;
+        background-color: #4d4d4d
+    }
+    #gamesbar a{
+        text-decoration-color:whitesmoke;
+        text-decoration-skip-spaces: start;
+        color:whitesmoke;
+        text-underline-offset: 0.4em;
+    }
+
+    #homepagedocument{
+
+        width:100px;
+        height:100px;
+
+    }
+    #mainpage-header{
+        padding:10px;
+        width:fit-content;
+        margin-left:-300px;
+        margin-top:100px;
+        border:2px solid;
+        border-radius: 25px;
+    }
+    #main-page-img{
+        width:800px;
+        height:500px;
+    }
+    body{
+        background-color: rgb(128, 128, 128);
+    }
+    .tournaments-a-tag{
+        text-decoration: none;
+    }
+    .tournament.infos td{
+        margin-left:200px;
+
+    }
+    .gamesbar a{
+        margin-top:20px;
+    }
+    .gamesbar a img{
+        margin-top:5px;
+    }
+    .gamesbar h6{
+        margin-left:10px;
+    }
+    table {
+        border-collapse: separate;
+        border-spacing: 50px; /* Adjust this value as needed */
+    }
+    #editingform{
+        margin-top:200px;
+        margin-left:300px;
+    }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<navbar>
+    <div class="container-fluid bg-dark" id="homepagenavbar">
+    <div class="row align-items-center justify-content-between" id="homepagenavbarrow">
+        <div class="col-3 homepagenavbarlogo">
+            <a href="/" id="logo-name-a-tag">
+            <h3 id="logo-name">turnuvam.com</h3></a>
+        </div>
+        <div class="col-3 homepagenavbarmenu" style="display: flex">
+            <ul>
+                <li><a href="/" id="homepage-writing">home page</a></li>
+                <li><a href="/tournaments/allTournaments" id="tournaments-writing">tournaments</a> </li>
+                <li>
+                {% if user.is_authenticated %}
+                 <span class="navbar-text me-4">
+                 <a href="#"> Welcome, {{user.username}}</a>
+                 </span>
+                 <span class="navbar-text me-4">
+                 <a href="../logout">Log Out</a>
+                 </span>
+                {% else %}
+                 <span class="navbar-text me-4">
+                 <a href="../login">Log In</a>
+                </span>
+                 <span class="navbar-text me-4">
+                 <a href="../register">Register</a>
+                 </span>
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </navbar>
+    <div class="container-fluid gamesbar" id="gamesbar">
+        <a href="/games/6" style="display:flex;">
+            <img src="{% static 'counterstrike2.jpg' %}" alt="" style="width:50px;height:30px;">
+            <h6>Counter Strike 2</h6>
+        </a>
+        <a href="/games/1" style="display:flex;">
+            <img src="{% static 'lol.png' %}" alt="" style="width:50px;height:30px;">
+            <h6>League of Legends</h6>
+        </a>
+        <a href="/games/4" style="display:flex;" >
+            <img src="{% static 'valorant.png' %}" alt="" style="width:50px;height:30px;">
+            <h6>Valorant</h6>
+        </a>
+        <a href="/games/3" style="display:flex;">
+            <img src="{% static 'dota2.png' %}" alt="" style="width:50px;height:30px;">
+            <h6>Dota 2</h6>
+        </a>
+        <a href="/games/5" style="display:flex;">
+            <img src="{% static 'overwatch.png' %}" alt="" style="width:50px;height:30px;">
+            <h6>Overwatch</h6>
+        </a>
+        <a href="/games/2" style="display:flex;">
+            <img src="{% static 'mlbb.png' %}" alt="" style="width:50px;height:30px;">
+            <h6>Mobile Legends:Bang Bang</h6>
+        </a>
+    </div>
+
+
+    <div style="margin-left:1200px;margin-top:-100px;position:absolute;margin-top:20px;">
+        <a href="/tournaments/remove/{{ tournamentId }}">
+        <button style="background-color:green;border-radius: 10px;">Remove Tournament</button>
+        </a>
+    </div>
+
+
+    <div class="container-fluid edit-form" id="editingform" style="margin-top:100px;margin-left:300px;">
+        <h2>Editing Tournament</h2>
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+
+
+            <button type="submit">Edit Tournament</button>
+        </form>
+    </div>
+</body>
+<style>
+    .tournament.infos td{
+        margin-left:200px;
+
+    }
+    .gamesbar a{
+        margin-top:20px;
+    }
+    .gamesbar a img{
+        margin-top:5px;
+    }
+    .gamesbar h6{
+        margin-left:10px;
+    }
+    table {
+        border-collapse: separate;
+        border-spacing: 50px; /* Adjust this value as needed */
+    }
+</style>
+
+</html>
